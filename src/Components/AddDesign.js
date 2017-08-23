@@ -14,13 +14,13 @@ class AddDesign extends Component {
     this.setState({ name: e.target.value });
   }
   handleDesignerChange(e) {
-    this.setState({ name: e.target.value });
+    this.setState({ designer: e.target.value });
   }
   handleImageURLChange(e) {
-    this.setState({ name: e.target.value });
+    this.setState({ imageURL: e.target.value });
   }
   handleMaterialChange(e) {
-    this.setState({ name: e.target.value });
+    this.setState({ material: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -29,11 +29,29 @@ class AddDesign extends Component {
   render() {
     return (
       <form onSubmit= {this.handleSubmit} >
-        <input type = 'text' placeholder = 'Design Name' value={this.state.name} onChange={ this.handleNameChange } />
-        <input type = 'text' placeholder = 'Designer' value={this.state.designer} onChange={ this.handleDesignerChange } />
-        <input type = 'text' placeholder = 'Image URL' value={this.state.imageURL} onChange={ this.handleImageURLChange } />
-        <input type = 'text' placeholder = 'Material' value={this.state.material} onChange={ this.handleMaterialChange } />
-        <input type = 'submit' value='Post' />
+        <input
+          type = 'text'
+          placeholder = 'Design Name'
+          value={this.state.name}
+          onChange={ this.handleNameChange } />
+        <input
+          type = 'text'
+          placeholder = 'Designer'
+          value={this.state.designer}
+          onChange={ this.handleDesignerChange } />
+        <input
+          type = 'text'
+          placeholder = 'Image URL'
+          value={this.state.imageURL}
+          onChange={ this.handleImageURLChange } />
+        <input
+          type = 'text'
+          placeholder = 'Material'
+          value={this.state.material}
+          onChange={ this.handleMaterialChange } />
+        <input
+          type = 'submit'
+          value='Submit' />
       </form>
     )
   }

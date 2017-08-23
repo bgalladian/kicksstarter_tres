@@ -2,7 +2,7 @@ const mongoose = require ("./connection.js")
 
 const DesignSchema = new mongoose.Schema ({
   name: String,
-  desginer: String,
+  designer: String,
   imageURL: String,
   material: String
 

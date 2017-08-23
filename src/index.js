@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import DesignContainer from './components/DesignContainer';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <DesignContainer
+    url="http://localhost:3001/api/designs"
+    pollInterval={2000} />
+  , document.getElementById('root'));
 registerServiceWorker();
