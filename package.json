@@ -7,6 +7,7 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "express": "^4.15.4",
+    "foreman": "^2.0.0",
     "mongoose": "^4.11.7",
     "nodemon": "^1.11.0",
     "react": "^15.6.1",

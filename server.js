@@ -29,24 +29,25 @@ app.use(parser.urlencoded({extended: true}))
 app.use(parser.json());
 
 
-//now we can set the roude path & initialize the API
+//now we can set the route path & initialize the API
 router.get('/', function(req, res) {
  res.json({ message: 'API Initialized!'});
 });
 
-//adding the /comments route to our /api router
+//adding the designs route to router
 router.route('/designs')
-  //retrieve all comments from the database
+  //retrieve all designs
   .get(function(req, res) {
-    //looks at our Comment Schema
+    //looks at schema
     Design.find(function(err, designs) {
       if (err)
         res.send(err);
-      //responds with a json object of our database comments.
+      //responds with a json object of our database
       res.json(designs)
     });
   })
-  //post new comment to the database
+
+  //post design database
   .post(function(req, res) {
     var design = new Design();
     //body parser lets us use the req.body
@@ -62,6 +63,7 @@ router.route('/designs')
     });
   });
 
+//to update a design
 router.route('/designs/:design_id')
   .put(function(req, res) {
     Design.findById(req.params.design_id, function(err, design) {
@@ -80,14 +82,15 @@ router.route('/designs/:design_id')
     });
   });
 
+//to delete a design
 router.route('/designs/:design_id')
-.delete(function (req, res) {
-  Design.remove({ _id: req.params.design_id }, function (err, comment) {
-    if (err)
-    res.send(err);
-    res.json({ message: "Design deleted"})
+  .delete(function (req, res) {
+    Design.remove({ _id: req.params.design_id }, function (err, comment) {
+      if (err)
+      res.send(err);
+      res.json({ message: "Design deleted"})
+    })
   })
-})
 
 
 //Use our router configuration when we call /api
