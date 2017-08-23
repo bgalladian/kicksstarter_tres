@@ -30,9 +30,9 @@ class AddDesign extends Component {
     return (
       <form onSubmit= {this.handleSubmit} >
         <input type = 'text' placeholder = 'Design Name' value={this.state.name} onChange={ this.handleNameChange } />
-        <input type = 'text' placeholder = 'Designer' value={this.state.name} onChange={ this.handleNameChange } />
-        <input type = 'text' placeholder = 'Image URL' value={this.state.name} onChange={ this.handleNameChange } />
-        <input type = 'text' placeholder = 'Material' value={this.state.name} onChange={ this.handleNameChange } />
+        <input type = 'text' placeholder = 'Designer' value={this.state.designer} onChange={ this.handleDesignerChange } />
+        <input type = 'text' placeholder = 'Image URL' value={this.state.imageURL} onChange={ this.handleImageURLChange } />
+        <input type = 'text' placeholder = 'Material' value={this.state.material} onChange={ this.handleMaterialChange } />
         <input type = 'submit' value='Post' />
       </form>
     )

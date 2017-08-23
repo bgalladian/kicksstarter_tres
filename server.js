@@ -48,22 +48,46 @@ router.route('/designs')
   })
   //post new comment to the database
   .post(function(req, res) {
-    var comment = new Design();
+    var design = new Design();
     //body parser lets us use the req.body
-    design.name = req.body.author;
+    design.name = req.body.name;
     design.designer = req.body.designer;
     design.imageURL = req.body.imageURL;
     design.material = req.body.material;
 
-    Design.save(function(err) {
+    design.save(function(err) {
       if (err)
         res.send(err);
       res.json({ message: 'Design successfully added!' });
     });
   });
 
+router.route('/designs/:design_id')
+  .put(function(req, res) {
+    Design.findById(req.params.design_id, function(err, design) {
+      if (err)
+        res.send(err);
+      (req.body.name) ? design.name = req.body.name : null;
+      (req.body.designer) ? design.designer = req.body.designer : null;
+      (req.body.imageURL) ? design.imageURL = req.body.imageURL : null;
+      (req.body.material) ? design.material = req.body.material : null;
 
+      design.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ message: "Design has been updated!"})
+      });
+    });
+  });
 
+router.route('/designs/:design_id')
+.delete(function (req, res) {
+  Design.remove({ _id: req.params.design_id }, function (err, comment) {
+    if (err)
+    res.send(err);
+    res.json({ message: "Design deleted"})
+  })
+})
 
 
 //Use our router configuration when we call /api
